@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ems-copilot"
+version = "0.1.0"
+description = "Reproducible energy analytics and optional grounded carbon reporting"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+notebook = ["jupyterlab>=4,<5"]
+ai = ["openai>=1.68,<3", "chromadb>=1,<2", "pypdf>=5,<7", "python-docx>=1.1,<2"]
+ui = ["gradio>=5,<6"]
+
+[project.scripts]
+ems-copilot = "ems_copilot.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["ems_copilot*"]
